@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -17,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Executing Java application'
+                echo 'Testing Java application'
                 bat 'java app'
             }
         }
@@ -32,9 +33,8 @@ pipeline {
 
     post {
         success {
-            echo 'CI pipeline completed successfully'
+            echo 'CI pipeline successful'
         }
-
         failure {
             echo 'CI pipeline failed'
         }
