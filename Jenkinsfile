@@ -11,30 +11,27 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Java application'
-                bat 'javac app.java'
+                bat 'javac Main.java'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Executing Java application'
-                bat 'java app'
+                echo 'Testing Java application'
             }
         }
 
         stage('Run Application') {
             steps {
-                echo 'Running Java application'
-                bat 'java app'
+                bat 'java Main'
             }
         }
     }
 
     post {
         success {
-            echo 'CI pipeline completed successfully'
+            echo 'CI pipeline successful'
         }
-
         failure {
             echo 'CI pipeline failed'
         }
